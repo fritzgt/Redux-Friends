@@ -11,7 +11,7 @@ function App() {
   return (
     <Router>
       <div className="App">
-        <h1>Welcome to Friends</h1>
+        <h1>Welcome to Friends - Redux App</h1>
         <Link to="/login">Login</Link>
         <Route path="/login" component={Login} />
       </div>

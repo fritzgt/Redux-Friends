@@ -5,11 +5,16 @@ import { connect } from "react-redux";
 
 class Login extends React.Component {
   state = {
-    userName: "",
+    username: "",
     password: ""
   };
 
-  changeHandler = e => {};
+  changeHandler = event => {
+    console.log(event.target.value);
+    this.setState({
+      [event.target.name]: event.target.value
+    });
+  };
 
   submitHandler = e => {
     e.preventDefault();
@@ -20,12 +25,14 @@ class Login extends React.Component {
       <form onSubmit={this.submitHandler}>
         <input
           type="text"
+          name="username"
           placeholder="User Name"
           value={this.state.userName}
           onChange={this.changeHandler}
         />
         <input
           type="password"
+          name="password"
           placeholder="Password"
           value={this.state.password}
           onChange={this.changeHandler}
