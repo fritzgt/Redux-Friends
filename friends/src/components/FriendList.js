@@ -1,5 +1,11 @@
 import React from "react";
 
+import { connect } from "react-redux";
+
+import { withRouter } from "react-router-dom";
+
+import { getFriends } from "../actions";
+
 class FriendList extends React.Component {
   componentDidMount() {
     this.props.getFriends();
@@ -8,10 +14,22 @@ class FriendList extends React.Component {
   render() {
     return (
       <div>
-        <h1>FriendsList</h1>
+        {this.friends.map(friend => (
+          <h3>{friend}</h3>
+        ))}
       </div>
     );
   }
 }
 
-export default FriendList;
+const mapStateToProps = ({ friends, fetchingFriends }) => ({
+  friends,
+  fetchingFriends
+});
+
+export default withRouter(
+  connect(
+    mapStateToProps,
+    { getFriends }
+  )(FriendList)
+);
