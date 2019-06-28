@@ -17,6 +17,8 @@ function App() {
       <div className="App">
         <h1>Welcome to Friends - Redux App</h1>
         <Link to="/login">Login</Link>
+        <br />
+        <Link to="/protected">Protected Page</Link>
         <Route path="/login" component={Login} />
         <PrivateRoute exact path="/protected" component={FriendList} />
       </div>

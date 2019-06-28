@@ -10,7 +10,7 @@ export const login = creds => dispatch => {
   dispatch({ type: LOGGING_IN });
   return (
     axios
-      .post("http://localhost:5000/", creds)
+      .post("http://localhost:5000/api/login", creds)
       //setting the  token to local storage
       .then(res => localStorage.setItem("token", res.data.payload))
   );
@@ -20,11 +20,11 @@ export const login = creds => dispatch => {
 export const getFriends = () => dispatch => {
   dispatch({ type: FETCH_DATA_START });
   axios
-    .get("http://localhost:5000/", {
-      headers: { Authorization: localStorage.getItem("token") }
+    .get("http://localhost:5000/api/friends", {
+      headers: { authorization: localStorage.getItem("token") }
     })
     .then(res => {
-      console.log(res);
+      console.log("Date coming from API", res);
       dispatch({ type: FETCH_DATA_SUCCESS, payload: res.data });
     })
     .catch(err => {
