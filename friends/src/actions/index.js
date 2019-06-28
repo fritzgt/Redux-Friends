@@ -24,7 +24,6 @@ export const getFriends = () => dispatch => {
       headers: { authorization: localStorage.getItem("token") }
     })
     .then(res => {
-      console.log("Date coming from API", res);
       dispatch({ type: FETCH_DATA_SUCCESS, payload: res.data });
     })
     .catch(err => {
