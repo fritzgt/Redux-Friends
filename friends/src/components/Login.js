@@ -25,6 +25,7 @@ class Login extends React.Component {
     //and passing the state
     //when the action returns with the then
     //with push it to the history
+    console.log(this.state);
     this.props
       .login(this.state)
       .then(() => this.props.history.push("/FriendsList"));
