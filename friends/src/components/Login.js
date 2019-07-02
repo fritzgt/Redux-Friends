@@ -28,7 +28,7 @@ class Login extends React.Component {
     console.log(this.state);
     this.props
       .login(this.state)
-      .then(() => this.props.history.push("/FriendsList"));
+      .then(() => this.props.history.push("/protected"));
   };
 
   render() {
